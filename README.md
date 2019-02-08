@@ -11,6 +11,6 @@ The course is designed to be three hours long, so the content is brief on purpos
 1. Presentation
 2. Handout: R and flow cytometry data analysis
 3. R files to save typing
-4. Example FCS files
+4. Example FCS files: 4 files of 8 peak beads and 1 file of lymphocytes stained with 6 colours
 
 Let me know what you think by [email](mailto:christopher.hall@sanger.ac.uk), raising an issue, or through [Twitter](https://twitter.com/SangerCytometry)
