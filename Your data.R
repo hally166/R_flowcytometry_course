@@ -1,13 +1,20 @@
+install.packages("BiocManager")
+BiocManager::install("flowCore")
+BiocManager::install("flowViz")
+BiocManager::install("flowWorkspace")
+BiocManager::install("openCyto")
+BiocManager::install("ggcyto")
 library(flowCore)
 library(flowViz)
 library(flowWorkspace)
 library(openCyto)
 library(ggcyto)
+library(gridExtra)
 
-setwd("C:/yourDATA/")
+setwd("C:/Users/ch15/Documents/R data analysis/yourDATA")
 
-files <- list.files(path="C:/yourDATA/", pattern=".fcs$")
-fs <- read.flowSet(files, path="C:/yourDATA/") #danger point!
+files <- list.files(path="C:/Users/ch15/Documents/R data analysis/yourDATA", pattern=".fcs$")
+fs <- read.flowSet(files) #danger point!
 tf <- estimateLogicle(fs[[1]], channels = colnames(fs[[1]][,8:13]))
 fs_trans <- transform(fs, tf)
 gs <- GatingSet(fs_trans)

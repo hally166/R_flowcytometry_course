@@ -6,7 +6,7 @@ library(flowCore)
 library(flowViz)
 
 #load file
-myfile <- "C:/FCSfiles/8peak500v.fcs"
+myfile <- "C:/Users/ch15/Documents/R data analysis/FCSfiles/8peak500v.fcs"
 fcsfile <- read.FCS(myfile)
 fcsfile
 
@@ -28,8 +28,8 @@ plot(fcsfile_trans, "610/20 (561)-A")
 plot(fcsfile_trans, "610/20 (561)-A", breaks=1024)
 
 #groups of files - flowset
-files <- list.files(path="C:/FCSfiles/", pattern=".fcs$")
-fs <- read.flowSet(files, path="C:/FCSfiles/") #danger point!
+files <- list.files(path="C:/Users/ch15/Documents/R data analysis/FCSfiles/", pattern=".fcs$")
+fs <- read.flowSet(files, path="C:/Users/ch15/Documents/R data analysis/FCSfiles/") #danger point!
 fs
 
 #transform flowset
@@ -96,8 +96,8 @@ library(flowCore)
 library(flowWorkspace)
 library(openCyto)
 
-files <- list.files(path="C:/FCSfiles/", pattern=".fcs$")
-fs <- read.flowSet(files, path="C:/FCSfiles/") #danger point!
+files <- list.files(path="C:/Users/ch15/Documents/R data analysis/FCSfiles/", pattern=".fcs$")
+fs <- read.flowSet(files, path="C:/Users/ch15/Documents/R data analysis/FCSfiles/") #danger point!
 tf <- estimateLogicle(fs[[1]], channels = colnames(fs[[1]][,7:24]))
 fs_trans <- transform(fs, tf)
 
