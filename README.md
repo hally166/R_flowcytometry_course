@@ -7,7 +7,7 @@ This is the the R course I have designed to help bridge the gap between the wet 
 
 ## Contents
 1. Presentation
-2. Handout: R and flow cytometry data anlysis
+2. Handout: R and flow cytometry data analysis
 3. R files to save typing
 4. Example FCS files
 
