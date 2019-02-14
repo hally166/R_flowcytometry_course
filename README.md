@@ -11,4 +11,7 @@ The course is designed to be three hours long, so the content is brief on purpos
 3. R files to save typing -- "R handout.R" and "Your data.R"
 4. Example FCS files: 4 files of 8 peak beads and 1 file of lymphocytes stained with 6 colours
 
+## Instructions
+Download the fcs files, read the PDF handout, and use the included scripts. 
+
 Let me know what you think by [email](mailto:christopher.hall@sanger.ac.uk), raising an issue, or through [Twitter](https://twitter.com/SangerCytometry)
