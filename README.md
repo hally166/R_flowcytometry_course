@@ -26,3 +26,9 @@ Remember that the code here is an amalgamation of all the help files from the fl
 [flowWorkspace](https://bioconductor.org/packages/release/bioc/html/flowWorkspace.html)
 
 [openCyto](https://www.bioconductor.org/packages/release/bioc/html/openCyto.html)
+
+## To do list for next time 
++ Add data cleaning
++ Use more data and analyse the titration experiment 
++ Add more statistics
++ More clustering examples
