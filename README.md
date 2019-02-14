@@ -17,3 +17,11 @@ Download the fcs files, read the PDF handout, and use the included scripts.
 ## Feedback
 
 Let me know what you think by [email](mailto:christopher.hall@sanger.ac.uk), raising an issue, or through [Twitter](https://twitter.com/SangerCytometry)
+
+## Info and help
+Remember that the code here is an amalgamation of all the help files from the flow cytometry R packages.  If you are stuck then check the documentation. Either use the ? R command or check the Bioconductor package page:
+[flowCore](http://bioconductor.org/packages/release/bioc/html/flowCore.html)
+
+[flowWorkspace](https://bioconductor.org/packages/release/bioc/html/flowWorkspace.html)
+
+[opemCyto](https://www.bioconductor.org/packages/release/bioc/html/openCyto.html)
