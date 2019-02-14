@@ -11,12 +11,21 @@ library(openCyto)
 library(ggcyto)
 library(gridExtra)
 
-setwd("C:/Users/ch15/Documents/R data analysis/yourDATA")
+setwd("C:/yourDATA/")
 
-files <- list.files(path="C:/Users/ch15/Documents/R data analysis/yourDATA", pattern=".fcs$")
-fs <- read.flowSet(files) #danger point!
-tf <- estimateLogicle(fs[[1]], channels = colnames(fs[[1]][,8:13]))
-fs_trans <- transform(fs, tf)
+#load files
+files <- list.files(path="C:/yourDATA/", pattern=".fcs$")
+fs <- read.flowSet(files, path="C:/yourDATA/")
+
+#compensate
+comp <-fsApply(fs,function(x)spillover(x)[[1]], simplify=FALSE)
+fs_comp <-compensate(fs, comp)
+
+#transform
+tf <- estimateLogicle(fs_comp[[1]], channels = colnames(fs[[1]][,8:13]))
+fs_trans <- transform(fs_comp, tf)
+
+#create gating set
 gs <- GatingSet(fs_trans)
 
 #gate the main population of events
