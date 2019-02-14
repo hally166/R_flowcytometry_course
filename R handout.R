@@ -20,10 +20,10 @@ summary(fcsfile[,7:24])
 fcsfile_comp <-compensate(fcsfile, spillover(fcsfile)[[1]])
 
 #transform data
-chnls <- colnames(fcsfile[,7:24])
+chnls <- colnames(fcsfile_comp[,7:24])
 chnls
-trans <- estimateLogicle(fcsfile, chnls)
-fcsfile_trans <- transform(fcsfile, trans)
+trans <- estimateLogicle(fcsfile_comp, chnls)
+fcsfile_trans <- transform(fcsfile_comp, trans)
 
 #basic plotting
 plot(fcsfile, c("FSC-A", "SSC-A"))
@@ -42,8 +42,8 @@ comp <-fsApply(fs,function(x)spillover(x)[[1]], simplify=FALSE)
 fs_comp <-compensate(fs, comp)
 
 #transform flowset
-tf <- estimateLogicle(fs[[1]], channels = colnames(fs[[1]][,7:24]))
-fs_trans <- transform(fs, tf)
+tf <- estimateLogicle(fs_comp[[1]], channels = colnames(fs[[1]][,7:24]))
+fs_trans <- transform(fs_comp, tf)
 fs_trans
 
 #explore flowSet
