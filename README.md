@@ -14,4 +14,6 @@ The course is designed to be three hours long, so the content is brief on purpos
 ## Instructions
 Download the fcs files, read the PDF handout, and use the included scripts. 
 
+## Feedback
+
 Let me know what you think by [email](mailto:christopher.hall@sanger.ac.uk), raising an issue, or through [Twitter](https://twitter.com/SangerCytometry)
