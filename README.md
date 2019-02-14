@@ -3,7 +3,7 @@ The files and presentation from the Cytometry Core Facility flow cytometry data 
 
 This is the the R course I have designed to help bridge the gap between the wet lab flow cytometrist and the bioinformatician.  It is not designed as a full R course, or a full flow cytometry data analysis course.  It is intended to open the non-programmers eyes to the world of data analysis in R.
 
-The course is designed to be three hours long, so the content is brief on purpose.
+The course is designed to be three hours long.
 
 ## Contents
 1. PDF presentation
