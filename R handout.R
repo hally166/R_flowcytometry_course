@@ -16,6 +16,9 @@ summary(fcsfile)
 str(keyword(fcsfile))
 summary(fcsfile[,7:24])
 
+#compensate data
+fcsfile_comp <-compensate(fcsfile, spillover(fcsfile)[[1]])
+
 #transform data
 chnls <- colnames(fcsfile[,7:24])
 chnls
@@ -33,6 +36,10 @@ plot(fcsfile_trans, "610/20 (561)-A", breaks=1024)
 files <- list.files(path="C:/FCSfiles/", pattern=".fcs$")
 fs <- read.flowSet(files, path="C:/FCSfiles/")
 fs
+
+#compensate flowset
+comp <-fsApply(fs,function(x)spillover(x)[[1]], simplify=FALSE)
+fs_comp <-compensate(fs, comp)
 
 #transform flowset
 tf <- estimateLogicle(fs[[1]], channels = colnames(fs[[1]][,7:24]))
