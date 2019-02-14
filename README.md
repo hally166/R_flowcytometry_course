@@ -5,12 +5,10 @@ This is the the R course I have designed to help bridge the gap between the wet 
 
 The course is designed to be three hours long, so the content is brief on purpose.
 
-**It is still in active development** (Feb2019).
-
 ## Contents
-1. Presentation
-2. Handout: R and flow cytometry data analysis
-3. R files to save typing
+1. PDF presentation
+2. PDF handout: Basic R and flow cytometry data analysis in R
+3. R files to save typing -- "R handout.R" and "Your data.R"
 4. Example FCS files: 4 files of 8 peak beads and 1 file of lymphocytes stained with 6 colours
 
 Let me know what you think by [email](mailto:christopher.hall@sanger.ac.uk), raising an issue, or through [Twitter](https://twitter.com/SangerCytometry)
