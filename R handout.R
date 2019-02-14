@@ -6,7 +6,7 @@ library(flowCore)
 library(flowViz)
 
 #load file
-myfile <- "C:/Users/ch15/Documents/R data analysis/FCSfiles/8peak500v.fcs"
+myfile <- "C:/FCSfiles/8peak500v.fcs"
 fcsfile <- read.FCS(myfile)
 fcsfile
 
@@ -17,8 +17,10 @@ str(keyword(fcsfile))
 summary(fcsfile[,7:24])
 
 #transform data
-trans <- estimateLogicle(fcsfile,channels = colnames(fcsfile[,7:24]))
-fcsfile_trans <- transform(fcsfile[,7:24], trans)
+chnls <- colnames(fcsfile[,7:24])
+chnls
+trans <- estimateLogicle(fcsfile, chnls)
+fcsfile_trans <- transform(fcsfile, trans)
 
 #basic plotting
 plot(fcsfile, c("FSC-A", "SSC-A"))
@@ -28,8 +30,8 @@ plot(fcsfile_trans, "610/20 (561)-A")
 plot(fcsfile_trans, "610/20 (561)-A", breaks=1024)
 
 #groups of files - flowset
-files <- list.files(path="C:/Users/ch15/Documents/R data analysis/FCSfiles/", pattern=".fcs$")
-fs <- read.flowSet(files, path="C:/Users/ch15/Documents/R data analysis/FCSfiles/") #danger point!
+files <- list.files(path="C:/FCSfiles/", pattern=".fcs$")
+fs <- read.flowSet(files, path="C:/FCSfiles/")
 fs
 
 #transform flowset
@@ -96,8 +98,8 @@ library(flowCore)
 library(flowWorkspace)
 library(openCyto)
 
-files <- list.files(path="C:/Users/ch15/Documents/R data analysis/FCSfiles/", pattern=".fcs$")
-fs <- read.flowSet(files, path="C:/Users/ch15/Documents/R data analysis/FCSfiles/") #danger point!
+files <- list.files(path="C:/FCSfiles/", pattern=".fcs$")
+fs <- read.flowSet(files, path="C:/FCSfiles/")
 tf <- estimateLogicle(fs[[1]], channels = colnames(fs[[1]][,7:24]))
 fs_trans <- transform(fs, tf)
 
@@ -123,14 +125,6 @@ p1
 p2 <- ggcyto(gs, aes(x = 'FSC-H', y = 'FSC-W')) + geom_hex(bins = 128) + geom_gate("singlets") + geom_stats()
 p2
 
-#tSNE clustering
-install.packages("Rtsne")
-library(Rtsne)
-set.seed(42) # Sets seed for reproducibility
-thisData <- getData(gs, "singlets") #get parent data
-tsne_out <- Rtsne(as.matrix(exprs(thisData[[2]][,7:24])),perplexity=50) # Run TSNE
-plot(tsne_out$Y, col=exprs(thisData[[2]][,7])) # Plot the result
-
 #export data
 library(gridExtra)
 grid.arrange(as.ggplot(p1), as.ggplot(p2), nrow = 2)
@@ -138,3 +132,11 @@ g <- arrangeGrob(as.ggplot(p1), as.ggplot(p2), nrow = 2)
 ggsave(file="plots.png", g)
 write.csv(getPopStats(gs), "stats.csv")
 write.csv(exprs(thisData[[1]]), "stats2.csv")
+
+#tSNE clustering
+install.packages("Rtsne")
+library(Rtsne)
+set.seed(42) # Sets seed for reproducibility
+thisData <- getData(gs, "singlets") #get parent data
+tsne_out <- Rtsne(as.matrix(exprs(thisData[[2]][,7:24])),perplexity=50) # Run TSNE
+plot(tsne_out$Y, col=exprs(thisData[[2]][,7])) # Plot the result
