@@ -25,4 +25,4 @@ Remember that the code here is an amalgamation of all the help files from the fl
 
 [flowWorkspace](https://bioconductor.org/packages/release/bioc/html/flowWorkspace.html)
 
-[opemCyto](https://www.bioconductor.org/packages/release/bioc/html/openCyto.html)
+[openCyto](https://www.bioconductor.org/packages/release/bioc/html/openCyto.html)
