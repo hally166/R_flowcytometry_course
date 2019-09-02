@@ -27,7 +27,6 @@ Remember that the code here is an amalgamation of all the help files from the fl
 [openCyto](https://www.bioconductor.org/packages/release/bioc/html/openCyto.html)
 
 ## To do list for next time 
-+ Add data cleaning
 + Use more data and analyse the titration experiment 
-+ Add more statistics
++ Add comparative statistics
 + More clustering examples
