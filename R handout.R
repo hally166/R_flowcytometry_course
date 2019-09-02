@@ -2,8 +2,10 @@
 install.packages("BiocManager")
 BiocManager::install("flowCore")
 BiocManager::install("flowViz")
+BiocManager::install("flowAI")
 library(flowCore)
 library(flowViz)
+library(flowAI)
 
 #load file
 myfile <- "C:/FCSfiles/8peak500v.fcs"
@@ -16,6 +18,11 @@ summary(fcsfile)
 str(keyword(fcsfile))
 summary(fcsfile[,7:24])
 
+#clean the data
+fcsfile_flowAI <- flow_auto_qc(fcsfile)
+nrow(fcsfile)
+nrow(fcsfile_flowAI)
+
 #compensate data
 fcsfile_comp <-compensate(fcsfile, spillover(fcsfile)[[1]])
 
@@ -27,6 +34,7 @@ fcsfile_trans <- transform(fcsfile_comp, trans)
 
 #basic plotting
 plot(fcsfile, c("FSC-A", "SSC-A"))
+plot(fcsfile, c("610/20 (561)-A", "450/50 (355)-A"))
 plot(fcsfile_trans, c("610/20 (561)-A", "450/50 (355)-A"))
 plot(fcsfile_trans)
 plot(fcsfile_trans, "610/20 (561)-A")
@@ -36,6 +44,11 @@ plot(fcsfile_trans, "610/20 (561)-A", breaks=1024)
 files <- list.files(path="C:/FCSfiles/", pattern=".fcs$")
 fs <- read.flowSet(files, path="C:/FCSfiles/")
 fs
+
+#clean the flowset
+fs_flowAI <- flow_auto_qc(fs)
+head(fsApply(fs, nrow))
+head(fsApply(fs_flowAI, nrow))
 
 #compensate flowset
 comp <-fsApply(fs,function(x)spillover(x)[[1]], simplify=FALSE)
@@ -61,6 +74,7 @@ library(ggcyto)
 autoplot(fs_trans[[1]], x="610/20 (561)-A", y="450/50 (355)-A", bins = 256)
 autoplot(fs_trans, x="610/20 (561)-A", y="450/50 (355)-A", bins = 256)
 
+#use the + symbol to change the plot paramaters.  Check the docs there are a lot of options
 p <- ggcyto(fs_trans, aes(x = "610/20 (561)-A", y =  "450/50 (355)-A"))
 p <- p + geom_hex(bins = 128)
 p
