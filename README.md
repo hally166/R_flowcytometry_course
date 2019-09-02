@@ -26,6 +26,8 @@ Remember that the code here is an amalgamation of all the help files from the fl
 
 [openCyto](https://www.bioconductor.org/packages/release/bioc/html/openCyto.html)
 
+[flowAI](http://bioconductor.org/packages/release/bioc/vignettes/flowAI/inst/doc/flowAI.html)
+
 ## To do list for next time 
 + Use more data and analyse the titration experiment 
 + Add comparative statistics
