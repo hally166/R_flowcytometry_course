@@ -22,6 +22,7 @@ summary(fcsfile[,7:24])
 fcsfile_flowAI <- flow_auto_qc(fcsfile)
 nrow(fcsfile)
 nrow(fcsfile_flowAI)
+#You could change the first line to 'fcsfile_flowAI <- flow_auto_qc(fcsfile, remove_from = c("FR", "FS"))' as flowAI can be very aggresive in removing events. FR= flow rate, FS = signal, FR = dynamic range.  FR can be problamatic, in a practical sense, not in an academic one.
 
 #compensate data
 fcsfile_comp <-compensate(fcsfile, spillover(fcsfile)[[1]])
